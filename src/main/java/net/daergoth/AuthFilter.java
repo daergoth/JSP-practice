@@ -17,37 +17,37 @@ import net.daergoth.model.User;
 
 public class AuthFilter implements Filter {
 
-	private UserDao dao;
-	
+    private UserDao dao;
+
     public AuthFilter() {
-    	
+
     }
-    
+
     public void init(FilterConfig fConfig) throws ServletException {
-		dao = new UserDaoMock();
-	}
+        dao = new UserDaoMock();
+    }
 
-	public void destroy() {
-		
-	}
+    public void destroy() {
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse resp = (HttpServletResponse) response;
-		
-		String email = (String)req.getSession().getAttribute("logged-in-as");
-		
-		User u = dao.getUserByEmail(email);
-		
-		if (u == null) {
-			resp.setStatus(403);
-			resp.getWriter().append("Please login first!");
-			return;
-		}
-		
-		
-		chain.doFilter(request, response);
-	}
+    }
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+
+        String email = (String) req.getSession().getAttribute("logged-in-as");
+
+        User u = dao.getUserByEmail(email);
+
+        if (u == null) {
+            resp.setStatus(403);
+            resp.getWriter().append("Please login first!");
+            return;
+        }
+
+        chain.doFilter(request, response);
+    }
 
 }

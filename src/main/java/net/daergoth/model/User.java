@@ -1,36 +1,38 @@
 package net.daergoth.model;
 
-public class User {
-	
-	private String email;
-	
-	private String password;
-	
-	public User() {
-		
-	}
-	
-	public User(String email, String password) {
-		this.email = email;
-		this.password = password;
-	}
+import java.io.Serializable;
 
-	public String getEmail() {
-		return email;
-	}
+public class User implements Serializable {
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    private static final long serialVersionUID = 6822199753616710856L;
 
-	public String getPassword() {
-		return password;
-	}
+    private String email;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	
-	
+    private String password;
+
+    public User() {
+
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

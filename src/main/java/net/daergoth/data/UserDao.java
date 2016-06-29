@@ -6,8 +6,8 @@ import net.daergoth.model.User;
 
 public interface UserDao {
 
-	public List<User> getAllUsers();
-	
-	public User getUserByEmail(String email);
-	
+    public List<User> getAllUsers();
+
+    public User getUserByEmail(String email);
+
 }
