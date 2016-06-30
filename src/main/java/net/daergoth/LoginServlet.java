@@ -47,22 +47,28 @@ public class LoginServlet extends HttpServlet {
 
             System.out.println("** INFO ** /login - email: " + email + ", password: " + password);
 
-            User u = dao.getUserByEmail(email);
 
-            if (email != null && password != null && u != null) {
-                if (password.equals(u.getPassword())) {
-                    request.getSession().setAttribute("logged-in-as", email);
-
-                    response.sendRedirect("/profile");
+            if (!email.isEmpty() && !password.isEmpty()) {
+                User u = dao.getUserByEmail(email);
+                if (u != null) {
+                    if (password.equals(u.getPassword())) {
+                        request.getSession().setAttribute("logged-in-as", email);
+                        
+                        response.sendRedirect("/profile");
+                    } else {
+                        // Password not correct
+                        // Send login page back
+                        response.sendRedirect("/login?error=0");
+                    }
                 } else {
-                    // Email/Password not correct
-                    // Send login page back
-                    response.sendRedirect("WEB-INF/login.jsp?error=0");
+                    // Email not correct
+                    //Send login page back
+                    response.sendRedirect("/login?error=0");
                 }
             } else {
                 // Missing email or password
                 // Send login page back
-                response.sendRedirect("WEB-INF/login.jsp?error=1");
+                response.sendRedirect("/login?error=1");
             }
 
         } else if (request.getServletPath().equals("/logout")) {

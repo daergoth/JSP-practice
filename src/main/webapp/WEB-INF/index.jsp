@@ -1,9 +1,9 @@
 <html>
-    <head>
-        <title>Main page</title>
-    </head>
+<head>
+<title>Main page</title>
+</head>
 
-    <body>
-	   <h2>Welcome!</h2>
-    </body>
+<body>
+	<h2>Welcome!</h2>
+</body>
 </html>

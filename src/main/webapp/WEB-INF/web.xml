@@ -7,45 +7,45 @@
 		<filter-name>AuthFilter</filter-name>
 		<filter-class>net.daergoth.AuthFilter</filter-class>
 	</filter>
-	
+
 	<filter-mapping>
 		<filter-name>AuthFilter</filter-name>
 		<url-pattern>/profile</url-pattern>
 	</filter-mapping>
-	
+
 	<servlet>
 		<servlet-name>MainPage</servlet-name>
 		<jsp-file>/WEB-INF/index.jsp</jsp-file>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>LoginPage</servlet-name>
 		<servlet-class>net.daergoth.LoginServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet>
-        <servlet-name>ProfilePage</servlet-name>
-        <jsp-file>/WEB-INF/profile.jsp</jsp-file>
-    </servlet>
+		<servlet-name>ProfileServlet</servlet-name>
+		<servlet-class>net.daergoth.ProfileServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>MainPage</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>LoginPage</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
-	
-   <servlet-mapping>
-        <servlet-name>LoginPage</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-    
-    <servlet-mapping>
-        <servlet-name>ProfilePage</servlet-name>
-        <url-pattern>/profile</url-pattern>
-    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LoginPage</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ProfileServlet</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
 
 </web-app>
